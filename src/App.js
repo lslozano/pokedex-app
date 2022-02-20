@@ -1,9 +1,16 @@
 import React from "react";
+// Components
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+// Views
+import Home from "./views/Home";
 
 const App = () => {
   return (
     <div>
-      <h1>App</h1>
+      <Navbar />
+      <Home />
+      <Footer />
     </div>
   );
 }
