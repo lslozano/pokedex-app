@@ -3,11 +3,12 @@ import React from 'react';
 import Body from '../../components/Body';
 import Form from '../../components/Form';
 import Card from '../../components/Card';
+import Loading from '../../components/Loading';
 
 const Home = (props) => {
   const { pokemons, loading } = props;
 
-  if (loading) return <h3>Information Loading</h3>
+  if (loading) return <Loading />;
 
   const renderPokemonCard = (pokemon) => {
     const { id, name, sprites, types } = pokemon;
