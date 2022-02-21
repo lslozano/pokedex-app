@@ -1,9 +1,13 @@
-import React from 'react'
+import React from 'react';
+// Styles
+import { ButtonContainer } from './styles';
 
-const Button = () => {
+const Button = (props) => {
+  const { type, onClick, text } = props;
+
   return (
-    <button type="text">View more details</button>
+    <ButtonContainer type={type} onClick={onClick}>{text}</ButtonContainer>
   )
 }
 
-export default Button
+export default Button;
