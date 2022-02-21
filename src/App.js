@@ -1,4 +1,6 @@
 import React from "react";
+// Styles
+import { MainContainer } from "./styles";
 // Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -7,11 +9,11 @@ import Home from "./views/Home";
 
 const App = () => {
   return (
-    <div>
+    <MainContainer>
       <Navbar />
       <Home />
       <Footer />
-    </div>
+    </MainContainer>
   );
 }
 

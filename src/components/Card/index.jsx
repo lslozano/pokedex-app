@@ -1,18 +1,30 @@
 import React from 'react';
 // Components
 import Button from '../Button';
+// Styles
+import {
+  Container, ImageContainer, Image,
+  TitleContainer, Text, ListContainer,
+} from './styles';
 
 const Card = () => {
   return (
-    <div>
-      <img src="" alt="card-img" />
-      <p>Number</p>
-      <p>Name</p>
-      <ul>
-        <li>Type</li>
-      </ul>
-      <Button />
-    </div>
+    <Container>
+      <ImageContainer>
+        <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png" alt="card-img" />
+      </ImageContainer>
+      <TitleContainer>
+        <Text>Name: Clefairy</Text>
+        <Text>Number: 35</Text>
+      </TitleContainer>
+      <ListContainer>
+        <Text>Types:</Text>
+        <ul>
+          <li>Fairy</li>
+        </ul>
+      </ListContainer>
+      <Button type="button" onClick={() => console.log('Take me to details')} text="View details" />
+    </Container>
   )
 }
 

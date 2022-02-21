@@ -1,12 +1,14 @@
 import React from 'react'
+// Styles
+import { Container, Icon } from './styles';
 // Assets
 import PokedexIcon from '../../assets/pokeapi.png'
 
 const Navbar = () => {
   return (
-    <nav>
-      <img src={PokedexIcon} alt="pokedex icon"/>
-    </nav>
+    <Container>
+      <Icon src={PokedexIcon} alt="pokedex icon"/>
+    </Container>
   )
 }
 

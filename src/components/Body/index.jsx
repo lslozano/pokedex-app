@@ -1,10 +1,12 @@
 import React from 'react';
+// Styles
+import { Container } from './styles';
 
 const Body = (props) => {
   return (
-    <div>
+    <Container>
       {props.children}
-    </div>
+    </Container>
   )
 }
 
