@@ -1,8 +1,8 @@
 import React, { useState, useEffect,} from "react";
+// Hooks
+import useLocalStorage from './Hooks/useLocalStorage';
 // API
-import { getPokemon } from "./api/PokedexApi";
-// Hook
-import useLocalStorage from "./Hooks/useLocalStorage";
+import { getPokemons } from "./api/PokedexApi";
 // Styles
 import { MainContainer } from "./styles";
 // Components
@@ -15,26 +15,30 @@ const App = () => {
   const [pokemons, setPokemons] = useLocalStorage('pokemons', []);
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    getPokemon()
+  const fetchPokemons = (numberOfPokemons = 1, startId = 1) => {
+    setLoading(true);
+
+    getPokemons(numberOfPokemons, startId)
       .then(response => {
-        setLoading(true);
-        if (response.data) {
-          const { results } = response.data;
-          setPokemons(results);
+        if (response) {
+          setPokemons(response);
         }
       })
       .catch(error => {
         console.log(error);
       })
       .finally(() => setLoading(false))
-      // eslint-disable-next-line react-hooks/exhaustive-deps
+  };
+
+  useEffect(() => {
+    fetchPokemons(20);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <MainContainer>
       <Navbar />
-      <Home />
+      <Home pokemons={pokemons} loading={loading} />
       <Footer />
     </MainContainer>
   );
