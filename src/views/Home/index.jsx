@@ -4,11 +4,13 @@ import Body from '../../components/Body';
 import Form from '../../components/Form';
 import Card from '../../components/Card';
 import Loading from '../../components/Loading';
+import Error from '../../components/Error';
 
 const Home = (props) => {
-  const { pokemons, loading } = props;
+  const { pokemons, loading, error } = props;
 
   if (loading) return <Loading />;
+  if (error) return <Error />;
 
   const renderPokemonCard = (pokemon) => {
     const { id, name, sprites, types } = pokemon;

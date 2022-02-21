@@ -14,9 +14,11 @@ import Home from "./views/Home";
 const App = () => {
   const [pokemons, setPokemons] = useLocalStorage('pokemons', []);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
   const fetchPokemons = (numberOfPokemons = 1, startId = 1) => {
     setLoading(true);
+    setError(false);
 
     getPokemons(numberOfPokemons, startId)
       .then(response => {
@@ -26,6 +28,7 @@ const App = () => {
       })
       .catch(error => {
         console.log(error);
+        setError(true);
       })
       .finally(() => setLoading(false))
   };
@@ -38,7 +41,7 @@ const App = () => {
   return (
     <MainContainer>
       <Navbar />
-      <Home pokemons={pokemons} loading={loading} />
+      <Home pokemons={pokemons} loading={loading} error={error} />
       <Footer />
     </MainContainer>
   );
