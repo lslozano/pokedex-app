@@ -7,20 +7,29 @@ import {
   TitleContainer, Text, ListContainer,
 } from './styles';
 
-const Card = () => {
+const Card = (props) => {
+  const { id, name, image, types } = props;
+
+  const renderTypes = (pokemonType) => {
+    const { type: { name } } = pokemonType;
+    return (
+      <li key={`${id}-${name}`}>{name}</li>
+    )
+  };
+
   return (
     <Container>
       <ImageContainer>
-        <Image src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png" alt="card-img" />
+        <Image src={image} alt="card-img" />
       </ImageContainer>
       <TitleContainer>
-        <Text>Name: Clefairy</Text>
-        <Text>Number: 35</Text>
+        <Text>Name: {name}</Text>
+        <Text>Number: {id}</Text>
       </TitleContainer>
       <ListContainer>
         <Text>Types:</Text>
         <ul>
-          <li>Fairy</li>
+          {types.map(renderTypes)}
         </ul>
       </ListContainer>
       <Button type="button" onClick={() => console.log('Take me to details')} text="View details" />
