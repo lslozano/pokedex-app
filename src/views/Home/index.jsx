@@ -4,6 +4,8 @@ import Body from '../../components/Body';
 import Form from '../../components/Form';
 import Card from '../../components/Card';
 import Message from '../../components/Message';
+// Styles
+import { CardsContainer } from './styles';
 
 const Home = (props) => {
   const { pokemons, loading, error } = props;
@@ -35,7 +37,9 @@ const Home = (props) => {
         filteredPokemons={filteredPokemons}
         setFilteredPokemons={setFilteredPokemons}
       />
-      {renderPokemons()}
+      <CardsContainer>
+        {renderPokemons()}
+      </CardsContainer>
     </Body>
   )
 }

@@ -5,6 +5,8 @@ import BackHome from '../../components/BackHome';
 import Body from '../../components/Body';
 import Card from '../../components/Card';
 import Message from '../../components/Message';
+// Styles
+import { DetailContainer } from './styles';
 
 const Details = (props) => {
   const { pokemons } = props;
@@ -28,11 +30,13 @@ const Details = (props) => {
   return (
     <Body>
       <BackHome />
-      <Card
-        key={id}
-        id={id}
-        pokemon={pokemon}
-      />
+      <DetailContainer>
+        <Card
+          key={id}
+          id={id}
+          pokemon={pokemon}
+        />
+      </DetailContainer>
     </Body>
   )
 }

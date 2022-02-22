@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPoints } from '../../breakpoints';
 
 export const Container = styled.div.attrs({
   className: 'card-container',
@@ -9,13 +10,24 @@ export const Container = styled.div.attrs({
   padding: 0 15px 15px;
   border-radius: 0 0 15px 15px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  width: 100%;
 
   a {
     align-self: center;
   }
 
-  .button-container {
-    margin-block-start: 35px;
+  ${breakPoints.smallTablet} {
+    width: 340px;
+  }
+
+  ${breakPoints.desktop} {
+    width: 300px;
+    margin: 0;
+    height: 400px;
+
+    a {
+      margin-block-start: auto;
+    }
   }
 `;
 
