@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPoints } from '../../breakpoints';
 
 export const InputField = styled.input.attrs({
   className: 'form-input',
@@ -12,5 +13,9 @@ export const InputField = styled.input.attrs({
 
   :hover {
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+
+  ${breakPoints.largeTablet} {
+    width: 100%;
   }
 `;

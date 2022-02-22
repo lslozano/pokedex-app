@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPoints } from '../../breakpoints';
 
 export const Container = styled.div.attrs({
   className: 'footer-container',
@@ -10,6 +11,14 @@ export const Container = styled.div.attrs({
   margin: 0 -10px;
   margin-block-start: auto;
   padding: 10px;
+
+  ${breakPoints.smallTablet} {
+    margin: auto -30px 0;
+  }
+
+  ${breakPoints.desktop} {
+    margin: auto -100px 0;
+  }
 `;
 
 export const Text = styled.p.attrs({

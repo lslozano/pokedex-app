@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakPoints } from '../../breakpoints';
 
 export const ButtonContainer = styled.button.attrs({
   className: 'button-container',
@@ -13,4 +14,9 @@ export const ButtonContainer = styled.button.attrs({
   font-weight: 700;
   margin-block-start: 10px;
   pointer-events: ${props => props.disabled ? 'none' : 'auto'};
+
+  ${breakPoints.smallTablet} {
+    width: 150px;
+    font-size: 1rem;
+  }
 `;
