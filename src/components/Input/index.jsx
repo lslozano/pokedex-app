@@ -1,6 +1,8 @@
 import React from 'react';
 // Styles
 import { InputField } from './styles';
+// Validation
+import { propTypes } from './types';
 
 const Input = (props) => {
   const { value, onChange } = props;
@@ -18,6 +20,8 @@ const Input = (props) => {
       />
     </>
   )
-}
+};
+
+Input.propTypes = propTypes;
 
 export default Input;

@@ -1,6 +1,8 @@
 import React from 'react';
 // Styles
 import { ButtonContainer } from './styles';
+// Validation
+import { defaultProps, propTypes } from './types';
 
 const Button = (props) => {
   const { type, onClick, text, disabled } = props;
@@ -14,6 +16,9 @@ const Button = (props) => {
       {text}
     </ButtonContainer>
   )
-}
+};
+
+Button.propTypes = propTypes;
+Button.defaultProps = defaultProps;
 
 export default Button;

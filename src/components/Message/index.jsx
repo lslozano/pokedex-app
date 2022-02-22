@@ -1,6 +1,8 @@
 import React from 'react';
 // Styles
 import { Container, Text } from './styles';
+// Validation
+import { propTypes } from './types';
 
 // This component helps to give the user feedback in different situations.
 const Message = (props) => {
@@ -10,6 +12,8 @@ const Message = (props) => {
       <Text>{text}</Text>
     </Container>
   )
-}
+};
+
+Message.propTypes = propTypes;
 
 export default Message;

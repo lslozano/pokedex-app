@@ -8,6 +8,8 @@ import {
   TitleContainer, Text,  DetailsContainer,
   Stats, Measurements, ListContainer,
 } from './styles';
+// Validation
+import { propTypes } from './types';
 
 const Card = (props) => {
   const { id, name, sprites, types, stats, weight, height } = props.pokemon;
@@ -77,6 +79,8 @@ const Card = (props) => {
       {renderViewDetailsButton()}
     </Container>
   )
-}
+};
+
+Card.propTypes = propTypes;
 
 export default Card;
