@@ -17,11 +17,10 @@ import NotFound from './views/NotFound';
 const App = () => {
   const [pokemons, setPokemons] = useLocalStorage('pokemons', []);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState(false);
 
   const fetchPokemons = (numberOfPokemons = 1, startId = 1) => {
     setLoading(true);
-    setError(false);
 
     getPokemons(numberOfPokemons, startId)
       .then(response => {

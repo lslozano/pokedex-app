@@ -7,6 +7,8 @@ import Card from '../../components/Card';
 import Message from '../../components/Message';
 // Styles
 import { DetailContainer } from './styles';
+// Validation
+import { propTypes } from './types';
 
 const Details = (props) => {
   const { pokemons } = props;
@@ -33,12 +35,13 @@ const Details = (props) => {
       <DetailContainer>
         <Card
           key={id}
-          id={id}
           pokemon={pokemon}
         />
       </DetailContainer>
     </Body>
   )
-}
+};
+
+Details.propTypes = propTypes;
 
 export default Details;

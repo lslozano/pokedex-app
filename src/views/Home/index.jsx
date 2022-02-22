@@ -6,6 +6,8 @@ import Card from '../../components/Card';
 import Message from '../../components/Message';
 // Styles
 import { CardsContainer } from './styles';
+// Validation
+import { propTypes } from './types';
 
 const Home = (props) => {
   const { pokemons, loading, error } = props;
@@ -42,6 +44,8 @@ const Home = (props) => {
       </CardsContainer>
     </Body>
   )
-}
+};
+
+Home.propTypes = propTypes;
 
 export default Home;
