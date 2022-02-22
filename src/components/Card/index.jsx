@@ -1,15 +1,19 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 // Components
 import Button from '../Button';
 // Styles
 import {
   Container, ImageContainer, Image,
-  TitleContainer, Text, ListContainer,
+  TitleContainer, Text,  DetailsContainer,
+  Stats, Measurements, ListContainer,
 } from './styles';
 
 const Card = (props) => {
-  const { id, name, image, types } = props;
+  const { id, name, sprites, types, stats, weight, height } = props.pokemon;
+  const { front_default: image } = sprites.other['official-artwork'];
+  const params = useParams();
+  const { name: pokemonName } = params;
 
   const renderTypes = (pokemonType) => {
     const { type: { name } } = pokemonType;
@@ -17,6 +21,38 @@ const Card = (props) => {
       <li key={`${id}-${name}`}>{name}</li>
     )
   };
+
+  const renderDetails = () => {
+    if (pokemonName) {
+      return (
+        <DetailsContainer>
+          <Stats>
+            <Text>hp: {stats[0].base_stat}</Text>
+            <Text>attack: {stats[1].base_stat}</Text>
+            <Text>defense: {stats[2].base_stat}</Text>
+          </Stats>
+          <Measurements>
+            <Text>weight: {weight}</Text>
+            <Text>height: {height}</Text>
+          </Measurements>
+        </DetailsContainer>
+      )
+    }
+
+    return null;
+  };
+
+  const renderViewDetailsButton = () => {
+    if (pokemonName === undefined) {
+      return (
+        <Link to={`/pokemon/${name}`}>
+          <Button type="button" text="View details" />
+        </Link>
+      );
+    }
+
+    return null;
+  }
 
   return (
     <Container>
@@ -27,15 +63,14 @@ const Card = (props) => {
         <Text>Name: {name}</Text>
         <Text>Number: {id}</Text>
       </TitleContainer>
+      {renderDetails()}
       <ListContainer>
         <Text>Types:</Text>
         <ul>
           {types.map(renderTypes)}
         </ul>
       </ListContainer>
-      <Link to={`/pokemon/${name}`}>
-        <Button type="button" text="View details" />
-      </Link>
+      {renderViewDetailsButton()}
     </Container>
   )
 }

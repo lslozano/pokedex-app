@@ -47,7 +47,7 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home pokemons={pokemons} loading={loading} error={error} />} />
-          <Route path="/pokemon/:name" element={<Details />} />
+          <Route path="/pokemon/:name" element={<Details pokemons={pokemons} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

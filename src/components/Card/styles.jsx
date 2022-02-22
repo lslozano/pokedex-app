@@ -55,6 +55,34 @@ export const Text = styled.p.attrs({
   font-weight: 700;
 `;
 
+
+export const DetailsContainer = styled.div.attrs({
+  className: 'card-details',
+})`
+  display: flex;
+  border-top: 1px solid #d3d3d3;
+  border-bottom: 1px solid #d3d3d3;
+  flex-direction: column;
+  padding: 20px 0;
+`;
+
+export const Stats = styled.div.attrs({
+  className: 'card-stats',
+})`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const Measurements = styled.div.attrs({
+  className: 'card-measurements',
+})`
+  display: flex;
+  flex-direction: row;
+  margin-block-start: 20px;
+  justify-content: space-evenly;
+`;
+
 export const ListContainer = styled.div.attrs({
   className: 'card-list-container',
 })`
