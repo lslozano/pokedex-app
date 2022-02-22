@@ -3,14 +3,13 @@ import React from 'react';
 import Body from '../../components/Body';
 import Form from '../../components/Form';
 import Card from '../../components/Card';
-import Loading from '../../components/Loading';
-import Error from '../../components/Error';
+import Message from '../../components/Message';
 
 const Home = (props) => {
   const { pokemons, loading, error } = props;
 
-  if (loading) return <Loading />;
-  if (error) return <Error />;
+  if (loading) return <Message text="Loading..." />;
+  if (error) return <Message text="Sorry, something went wrong =(" />;
 
   const renderPokemonCard = (pokemon) => {
     const { id, name, sprites, types } = pokemon;

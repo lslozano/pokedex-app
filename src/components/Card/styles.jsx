@@ -10,8 +10,11 @@ export const Container = styled.div.attrs({
   border-radius: 0 0 15px 15px;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 
-  .button-container {
+  a {
     align-self: center;
+  }
+
+  .button-container {
     margin-block-start: 35px;
   }
 `;

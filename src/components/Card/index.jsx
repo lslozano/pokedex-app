@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // Components
 import Button from '../Button';
 // Styles
@@ -32,7 +33,9 @@ const Card = (props) => {
           {types.map(renderTypes)}
         </ul>
       </ListContainer>
-      <Button type="button" onClick={() => console.log('Take me to details')} text="View details" />
+      <Link to={`/pokemon/${name}`}>
+        <Button type="button" text="View details" />
+      </Link>
     </Container>
   )
 }
