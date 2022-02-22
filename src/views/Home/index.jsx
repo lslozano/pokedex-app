@@ -12,15 +12,11 @@ const Home = (props) => {
   if (error) return <Message text="Sorry, something went wrong =(" />;
 
   const renderPokemonCard = (pokemon) => {
-    const { id, name, sprites, types } = pokemon;
-    const { front_default: image } = sprites.other['official-artwork'];
+    const { id } = pokemon;
     return (
       <Card
         key={id}
-        id={id}
-        name={name}
-        image={image}
-        types={types}
+        pokemon={pokemon}
       />
     );
   }
