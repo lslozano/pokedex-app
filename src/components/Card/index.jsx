@@ -24,12 +24,16 @@ const Card = (props) => {
 
   const renderDetails = () => {
     if (pokemonName) {
+      const hp = stats[0].base_stat;
+      const attack = stats[1].base_stat;
+      const defense = stats[2].base_stat;
+
       return (
         <DetailsContainer>
           <Stats>
-            <Text>hp: {stats[0].base_stat}</Text>
-            <Text>attack: {stats[1].base_stat}</Text>
-            <Text>defense: {stats[2].base_stat}</Text>
+            <Text>hp: {hp}</Text>
+            <Text>attack: {attack}</Text>
+            <Text>defense: {defense}</Text>
           </Stats>
           <Measurements>
             <Text>weight: {weight}</Text>

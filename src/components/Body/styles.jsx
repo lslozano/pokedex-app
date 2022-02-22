@@ -6,4 +6,8 @@ export const Container = styled.div.attrs({
   display: flex;
   flex-direction: column;
   padding: 25px 10px;
+
+  .message-text {
+    margin-block-start: 25px;
+  }
 `;

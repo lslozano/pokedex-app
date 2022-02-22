@@ -5,7 +5,9 @@ export const InputField = styled.input.attrs({
 })`
   border-radius: 25px;
   border: 2px solid #ef5350;
-  padding: 5px 0 5px 10px;
+  color: #4c5357;
+  font-weight: 400;
+  padding: 5px 0 5px 15px;
   max-width: 600px;
 
   :hover {
