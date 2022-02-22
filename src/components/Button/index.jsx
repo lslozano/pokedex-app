@@ -3,10 +3,16 @@ import React from 'react';
 import { ButtonContainer } from './styles';
 
 const Button = (props) => {
-  const { type, onClick, text } = props;
+  const { type, onClick, text, disabled } = props;
 
   return (
-    <ButtonContainer type={type} onClick={onClick}>{text}</ButtonContainer>
+    <ButtonContainer
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
+      {text}
+    </ButtonContainer>
   )
 }
 

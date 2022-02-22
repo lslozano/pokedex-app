@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Components
 import Body from '../../components/Body';
 import Form from '../../components/Form';
@@ -7,6 +7,7 @@ import Message from '../../components/Message';
 
 const Home = (props) => {
   const { pokemons, loading, error } = props;
+  const [filteredPokemons, setFilteredPokemons] = useState(pokemons);
 
   if (loading) return <Message text="Loading..." />;
   if (error) return <Message text="Sorry, something went wrong =(" />;
@@ -21,10 +22,20 @@ const Home = (props) => {
     );
   }
 
+  const renderPokemons = () => {
+    if (filteredPokemons.length === 0) return <Message text="No pokemon matches this name" />;
+
+    return filteredPokemons.map(renderPokemonCard);
+  }
+
   return (
     <Body>
-      <Form />
-      {pokemons.map(renderPokemonCard)}
+      <Form
+        pokemons={pokemons}
+        filteredPokemons={filteredPokemons}
+        setFilteredPokemons={setFilteredPokemons}
+      />
+      {renderPokemons()}
     </Body>
   )
 }
