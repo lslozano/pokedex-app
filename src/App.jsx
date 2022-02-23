@@ -9,6 +9,7 @@ import { MainContainer } from './styles';
 // Components
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import Message from './components/Message';
 // Views
 import Home from './views/Home';
 import Details from './views/Details';
@@ -45,7 +46,7 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home pokemons={pokemons} loading={loading} error={error} />} />
+          <Route path="/" element={loading ? <Message text="Loading..." /> : <Home pokemons={pokemons} error={error} />} />
           <Route path="/pokemon/:name" element={<Details pokemons={pokemons} />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

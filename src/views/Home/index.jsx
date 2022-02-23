@@ -10,10 +10,9 @@ import { CardsContainer } from './styles';
 import { propTypes } from './types';
 
 const Home = (props) => {
-  const { pokemons, loading, error } = props;
+  const { pokemons, error } = props;
   const [filteredPokemons, setFilteredPokemons] = useState(pokemons);
 
-  if (loading) return <Message text="Loading..." />;
   if (error) return <Message text="Sorry, something went wrong =(" />;
 
   const renderPokemonCard = (pokemon) => {
